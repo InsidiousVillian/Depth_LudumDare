@@ -128,7 +128,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 56881356}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Game_Sections
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -313,7 +313,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &499923611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -327,7 +327,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
+  jumpForce: 5
   body: {fileID: 499923610}
+  boxSize: {x: 0.88, y: 0.2}
+  castDistance: 0.52
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -560,7 +566,7 @@ GameObject:
   - component: {fileID: 2068066145}
   - component: {fileID: 2068066144}
   - component: {fileID: 2068066146}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
