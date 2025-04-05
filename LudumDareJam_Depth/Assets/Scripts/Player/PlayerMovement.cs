@@ -28,9 +28,11 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButtonDown("Jump") && isGrounded())
         {
             body.AddForce(new Vector2(body.linearVelocity.x, jumpForce * 20));
+            animator.SetBool("isJumping", true);
         }
         else{
             Debug.Log("is Grounded constant");
+            animator.SetBool("isJumping", false);
         }
 
         if(horizontal != 0){
