@@ -17,6 +17,10 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask groundLayer;
 
     [SerializeField] private Animator animator;
+    [SerializeField] private Transform wallCheck;
+    
+
+    
     
 
     // Update is called once per frame
@@ -42,6 +46,7 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("isRunning", false);
         }
 
+    
         //call flip method
         Flip();
 
@@ -70,6 +75,7 @@ public class PlayerMovement : MonoBehaviour
             return false;
         }
     }
+     
     void OnDrawGizmos(){
         Gizmos.DrawWireCube(transform.position - transform.up * castDistance, boxSize);
     }
