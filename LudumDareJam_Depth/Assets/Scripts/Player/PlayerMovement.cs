@@ -39,14 +39,15 @@ public class PlayerMovement : MonoBehaviour
         body.linearVelocity = new Vector2(horizontal * speed, body.linearVelocity.y);
     }
     private void Flip(){
-        /*chekc if player is movinh left or right or is facing in both directions
-        if either conditiuon is true then flips character object*/
-        if (isFacingRight && horizontal < 0f || isFacingRight && horizontal > 0f){
-            //toggles boolean to cinsider new direction
-            isFacingRight = !isFacingRight;
-            Vector3 localScale = transform.localScale;
-            localScale.x *= -1f;
-            transform.localScale = localScale;
+        // Flip only when direction doesn't match facing
+        if ((isFacingRight && horizontal < 0f) || (!isFacingRight && horizontal > 0f)){
+        // Toggle the boolean
+        isFacingRight = !isFacingRight;
+        
+        // Flip the sprite
+        Vector3 localScale = transform.localScale;
+        localScale.x *= -1f;
+        transform.localScale = localScale;
         }
     }
 
