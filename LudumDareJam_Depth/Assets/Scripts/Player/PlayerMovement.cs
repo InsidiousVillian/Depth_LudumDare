@@ -25,7 +25,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetButtonDown("Jump") && isGrounded())
         {
-            body.AddForce(new Vector2(body.velocity.x, jumpForce * 20));
+            body.AddForce(new Vector2(body.linearVelocity.x, jumpForce * 20));
         }
         else{
             Debug.Log("is Grounded constant");
@@ -36,7 +36,7 @@ public class PlayerMovement : MonoBehaviour
 
     }
     private void FixedUpdate(){
-        body.velocity = new Vector2(horizontal * speed, body.velocity.y);
+        body.linearVelocity = new Vector2(horizontal * speed, body.linearVelocity.y);
     }
     private void Flip(){
         /*chekc if player is movinh left or right or is facing in both directions
