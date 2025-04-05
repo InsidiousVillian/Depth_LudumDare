@@ -15,6 +15,8 @@ public class PlayerMovement : MonoBehaviour
     public float castDistance;
 
     public LayerMask groundLayer;
+
+    [SerializeField] private Animator animator;
     
 
     // Update is called once per frame
@@ -29,6 +31,13 @@ public class PlayerMovement : MonoBehaviour
         }
         else{
             Debug.Log("is Grounded constant");
+        }
+
+        if(horizontal != 0){
+            animator.SetBool("isRunning", true);
+        }
+        else{
+            animator.SetBool("isRunning", false);
         }
 
         //call flip method
