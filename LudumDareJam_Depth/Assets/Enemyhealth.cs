@@ -2,6 +2,7 @@ using UnityEngine;
 public class Enemyhealth : MonoBehaviour
 {
     public float health;
+    public float destroyDelay = 1.0f;
     private Animator anim;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -21,6 +22,7 @@ public class Enemyhealth : MonoBehaviour
             Debug.Log("enemy dead");
             if (anim != null) {
                 anim.SetBool("isDead", true);
+                Destroy(this.gameObject, destroyDelay);
             }
         }
     }
