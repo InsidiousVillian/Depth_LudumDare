@@ -94,6 +94,10 @@ public class PlayerMovement : MonoBehaviour
         Destroy(this.gameObject);
     }
 
+    public void endAttack(){
+        animator.SetBool("isAttacking", false);
+    }
+
 
     
     void OnDrawGizmos(){
