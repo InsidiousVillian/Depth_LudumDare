@@ -23,6 +23,8 @@ public class PlayerMovement : MonoBehaviour
     public float radius;
 
     public LayerMask enemies;
+
+    //public float damage = 20;
     
     
 
@@ -106,10 +108,11 @@ public class PlayerMovement : MonoBehaviour
 
     public void attack()
     {
-        Collider2D[] enemy = Physics2D.OverlapCircleAll(attackPoint.transform.position, enemies);
+        Collider2D[] enemy = Physics2D.OverlapCircleAll(attackPoint.transform.position, radius, enemies);
 
         foreach(Collider2D enemyGameobject in enemy){
             Debug.Log("enemy hit");
+            enemyGameobject.GetComponent<Enemyhealth>().health -= 10;
         }               
     }
 
