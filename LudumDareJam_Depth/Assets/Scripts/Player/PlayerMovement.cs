@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask groundLayer;
 
     [SerializeField] private Animator animator;
-    [SerializeField] private Transform wallCheck;
+    
     
 
     
@@ -46,7 +46,11 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("isRunning", false);
         }
 
-    
+        if(Input.GetMouseButtonDown(0)){
+            animator.SetBool("isAttacking", true);
+        }
+
+
         //call flip method
         Flip();
 
