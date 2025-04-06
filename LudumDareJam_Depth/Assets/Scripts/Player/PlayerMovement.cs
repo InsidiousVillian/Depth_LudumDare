@@ -1,5 +1,6 @@
 using UnityEngine;
 
+
 public class PlayerMovement : MonoBehaviour
 {
     private float horizontal;
@@ -17,6 +18,11 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask groundLayer;
 
     [SerializeField] private Animator animator;
+
+    public GameObject attackPoint;
+    public float radius;
+
+    public LayerMask enemies;
     
     
 
@@ -35,7 +41,7 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("isJumping", true);
         }
         else{
-            Debug.Log("is Grounded constant");
+           
             animator.SetBool("isJumping", false);
         }
 
@@ -98,10 +104,17 @@ public class PlayerMovement : MonoBehaviour
         animator.SetBool("isAttacking", false);
     }
 
+    public void attack()
+    {
+        Collider2D[] enemy = Physics2D.OverlapCircleAll(attackPoint.transform.position, enemies);
 
-    
-    void OnDrawGizmos(){
-        Gizmos.DrawWireCube(transform.position - transform.up * castDistance, boxSize);
+        foreach(Collider2D enemyGameobject in enemy){
+            Debug.Log("enemy hit");
+        }               
+    }
+
+    private void OnDrawGizmos(){
+        Gizmos.DrawWireSphere(attackPoint.transform.position, radius);
     }
 
 }
