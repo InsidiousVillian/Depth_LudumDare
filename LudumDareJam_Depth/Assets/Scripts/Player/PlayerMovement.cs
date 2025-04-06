@@ -75,7 +75,23 @@ public class PlayerMovement : MonoBehaviour
             return false;
         }
     }
-     
+
+     void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log("Collision with: " + collision.gameObject.name);
+
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Debug.Log(" Hit the obstacle!");
+        }
+    }
+    
+    void Die(){
+        Destroy(this.gameObject);
+    }
+
+
+    
     void OnDrawGizmos(){
         Gizmos.DrawWireCube(transform.position - transform.up * castDistance, boxSize);
     }
