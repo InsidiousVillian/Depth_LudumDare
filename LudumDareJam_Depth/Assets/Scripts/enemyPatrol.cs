@@ -27,7 +27,7 @@ public class enemyPatrol : MonoBehaviour
         Vector2 direction = currentPoint.position - transform.position;
 
         // Move the enemy towards the current point
-        body.velocity = new Vector2(direction.x * speed, body.velocity.y);
+        body.linearVelocity = new Vector2(direction.x * speed, body.linearVelocity.y);
 
         // If close to the current point, switch to the next one
         if (Vector2.Distance(transform.position, currentPoint.position) < 0.5f)
